@@ -60,7 +60,19 @@ section {
 
 .logo__img:hover,
 .socials__img:hover{
-  filter: invert(100%);
+  opacity: 0.5;
+  transition: all .2s ease;
+}
+
+.menu__item:hover,
+.contacts__link:hover{
+  opacity: 0.5;
+  transition: all .2s ease;
+}
+
+.hero__btn:hover{
+  background-color: var(--white);
+  color: var(--black);
   transition: all .2s ease;
 }
 
@@ -112,9 +124,44 @@ section {
   font-size: 72px;
 }
 
-.hero__title span {
-  font-family: var(--ff-cutiveMono);
+.hero__title span{
   color: var(--green);
+  font-family: var(--ff-cutiveMono);
+}
+
+@media screen and (min-width: 800px) {
+  .hero__title{
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__title span {
+    width: 7ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--white);
+    animation: cursor 0.75s step-end infinite, printed_text .5s steps(7);
+  }
+}
+
+@keyframes cursor {
+  0% {
+    border-color: white;
+  }
+
+  50% {
+    border-color: transparent;
+  }
+
+  100% {
+    border-color: white;
+  }
+}
+
+@keyframes printed_text {
+  from {
+    width: 0;
+  }
 }
 
 .hero__name {
